@@ -3,6 +3,9 @@
 SELECT id
 FROM users;
 
+SELECT DISTINCT id
+FROM users;
+
 SELECT * FROM users;
 
 -- us02 borrowed books number information must match with DB
