@@ -1,6 +1,7 @@
 package com.library.step_definitions;
 
 import com.library.utilities.DB_Util;
+import com.library.utilities.QueryReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -39,8 +40,12 @@ public class UsersStepDefs {
 
     @When("Execute query to get all columns")
     public void execute_query_to_get_all_columns() {
-        String query = "SELECT * FROM users";
+       /* String query = "SELECT * FROM users";
         DB_Util.runQuery(query);
+
+        */
+
+        DB_Util.runQuery(QueryReader.read("us1_all_user_id"));
         actulColumns = DB_Util.getAllColumnNamesAsList();
 
     }
@@ -55,12 +60,16 @@ public class UsersStepDefs {
 
     @When("I execute query to find most popular user")
     public void i_execute_query_to_find_most_popular_user() {
-        String query = "SELECT full_name, COUNT(*) AS countofreadbooks\n" +
+       /* String query = "SELECT full_name, COUNT(*) AS countofreadbooks\n" +
                 "FROM users u\n" +
                 "         INNER JOIN book_borrow bb ON u.id = bb.user_id\n" +
                 "GROUP BY full_name\n" +
                 "ORDER BY countofreadbooks DESC";
         DB_Util.runQuery(query);
+
+        */
+
+        DB_Util.runQuery(QueryReader.read("us4_popular_user"));
         actualPopularUser = DB_Util.getFirstRowFirstColumn();
         // DB_Util.getCellValue(1, 1);
     }
