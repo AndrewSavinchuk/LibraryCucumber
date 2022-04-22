@@ -40,8 +40,8 @@ SELECT full_name, COUNT(*) AS countofreadbooks
 FROM users u
          INNER JOIN book_borrow bb ON u.id = bb.user_id
 GROUP BY full_name
-ORDER BY 2 DESC;
-;
+ORDER BY countofreadbooks DESC;
+
 
 
 -- us05  query to get the book  "Chordeiles minor" information from books table
