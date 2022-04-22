@@ -34,7 +34,7 @@ public class UsersStepDefs {
         Assert.assertEquals(expectedIDs, actualIDs);
 
     }
-    List<String> actulColumns;
+    List<String> actulColumns; //null
     @When("Execute query to get all columns")
     public void execute_query_to_get_all_columns() {
         String query = "SELECT * FROM users";
