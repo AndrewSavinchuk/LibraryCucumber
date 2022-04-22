@@ -10,17 +10,20 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class BooksStepDefs {
-    LoginPage loginPage = new LoginPage();
-    DashBoardPage dashBoardPage = new DashBoardPage();
+    LoginPage loginPage ;
+    //LoginPage loginPage =new LoginPage();
+    DashBoardPage dashBoardPage;
     String actualBorrowedBooksNumber;
 
     @Given("I am in the homepage of library app")
     public void i_am_in_the_homepage_of_library_app() {
+        loginPage = new LoginPage();
         loginPage.login();
     }
 
     @When("I take borrowed books number")
     public void i_take_borrowed_books_number() {
+        dashBoardPage = new DashBoardPage();
         BrowserUtil.waitFor(3);
         actualBorrowedBooksNumber = dashBoardPage.borrowedBooksNumber.getText();
 
