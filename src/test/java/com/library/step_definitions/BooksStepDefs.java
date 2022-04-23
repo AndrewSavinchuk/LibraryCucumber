@@ -78,7 +78,7 @@ public class BooksStepDefs {
     public void i_open_a_book_called(String bookName) {
         book = bookName;
         new BookPage().search.sendKeys(bookName);
-        BrowserUtil.waitFor(3);
+        BrowserUtil.waitFor(1);
     }
 
     @When("I execute query to get the book information from books table")
@@ -126,6 +126,12 @@ DB_Util.runQuery(query);
         List<String> expectedBookCategories = DB_Util.getColumnDataAsList(1);
         Assert.assertEquals(expectedBookCategories, actualBookCategories);
     }
+
+
+
+
+
+
 
 
 }
